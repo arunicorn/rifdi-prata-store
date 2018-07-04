@@ -1,7 +1,20 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <title>CSS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+$.get( "http://wd.comsci.club/api/kv.php?key=pratacount" ,
+    data => {
+       var pratacount = parseInt( data );
+       $("#prata-count").html( pratacount );
+       $.post( "http://wd.comsci.club/api/kv.php?key=pratacount" , {
+           value: pratacount + 1;
+       } );
+    }
+);
+</script>
     <style>
       h1{
         text-align: center;
@@ -36,14 +49,14 @@
 
 
   <body>
-    <h1>Comprata Science Society</h1>
-
+    <h1>Institute of Research</h1>
+<p> Prata count: <span id ="prata-count"></span> </p>
     <div>
-      <p>Welcome to the Comprata Science club!
-          Ever wondered what goes into making a good prata?
-          At Comprata Science Society, we are also known as the Office of
+      <p>Welcome to the Institute of Research!
+          Ever wondered what goes into making a good project?
+          At Institute of Research, we are also known as the Office of
           Scientific Research and Development (OSRD) created to coordinate scientific research
-          on finding the ultimate prata recipe.
+          on finding the ultimate recipe for success.
       </p>
     </div>
   </body>
